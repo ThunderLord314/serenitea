@@ -1,0 +1,22 @@
+<div class="product">
+	<% if product.image.present? %>
+		<p>
+			<%= image_tag product.image.url %>
+		</p>
+	<% end %>
+	<h2>
+		<%= link_to product.name, product %>
+	</h2>
+	<p>
+		<b>Description: </b><%= product.description %>
+	</p>
+	<p>
+		<b>Quantity in Stock: </b><%= product.quantity %>
+	</p>
+	<p>
+		<b>Price: </b><%= product.price %>
+	</p>
+	<p>
+		<b>Category: </b><%= product.category %>
+	</p>
+</div>
