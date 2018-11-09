@@ -39,36 +39,36 @@ ActiveRecord::Schema.define(version: 2018_11_09_003937) do
   end
 
   create_table "customers", force: :cascade do |t|
-    t.string "first_name"
-    t.string "last_name"
-    t.string "address"
+    t.string "first_name", null: false
+    t.string "last_name", null: false
+    t.string "address", null: false
     t.string "phone_number"
-    t.string "email"
+    t.string "email", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "order_products", force: :cascade do |t|
-    t.decimal "order"
-    t.decimal "product"
-    t.decimal "quantity"
+    t.decimal "order", null: false
+    t.decimal "product", null: false
+    t.decimal "quantity", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "orders", force: :cascade do |t|
-    t.decimal "customer"
+    t.decimal "customer", null: false
     t.decimal "total_price"
-    t.datetime "date_ordered"
+    t.datetime "date_ordered", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "products", force: :cascade do |t|
-    t.string "name"
+    t.string "name", null: false
     t.string "description"
-    t.decimal "quantity"
-    t.decimal "price"
+    t.decimal "quantity", default: "0"
+    t.decimal "price", null: false
     t.string "image"
     t.string "shipping_info"
     t.datetime "created_at", null: false
