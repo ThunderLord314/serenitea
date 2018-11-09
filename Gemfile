@@ -35,6 +35,9 @@ gem 'jbuilder', '~> 2.5'
 
 gem 'rb-readline'
 
+# Adds pagination
+gem 'kaminari'
+
 # Adds user administration
 gem 'activeadmin'
 gem 'devise'
