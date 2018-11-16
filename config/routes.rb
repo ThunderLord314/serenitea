@@ -5,5 +5,6 @@ Rails.application.routes.draw do
   resources :about, only: [:index]
   resources :product, only: [:index, :show]
   resources :category, only: [:show]
+  resources :customer, only: [:index, :new, :create]
   root to: 'product#index'
 end
