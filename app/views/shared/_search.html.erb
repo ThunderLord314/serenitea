@@ -1,9 +1,8 @@
 <div class="search">	
-	<label for="search">Search:</label>
-	<input type="text" id="search" placeholder="keyword"></input>
-	<select>
-		<% @categories.each do |cat| %>
-			<option value="<%= cat.name %>"><%= cat.name %></option>
-		<% end %>
-	</select>
+	<%= form_tag("/search", method: "get") do %>
+		<%= label_tag(:text, "Search") %>
+		<%= text_field_tag(:text) %>
+		<%= collection_select(:category, :category_id, Category.all, :id, :name) %>
+		<%= submit_tag("Search") %>
+	<% end %>
 </div>
