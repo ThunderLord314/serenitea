@@ -1,0 +1,5 @@
+<div class="category">
+	<h2>Category: <%= @category.name %></h2>
+	<%= render partial: 'product/product', collection: @category.products %>
+	<%= link_to 'All Products', root_path %>
+</div>

@@ -17,6 +17,6 @@
 		<b>Price: </b><%= product.price %>
 	</p>
 	<p>
-		<b>Category: </b><%= product.category %>
+		<b>Category: </b><%= link_to product.category.name, controller: "category", action: "show", id: product.category %>
 	</p>
 </div>
