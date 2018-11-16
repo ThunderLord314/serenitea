@@ -14,7 +14,7 @@
 		<b>Quantity in Stock: </b><%= product.quantity %>
 	</p>
 	<p>
-		<b>Price: </b><%= product.price %>
+		<b>Price: </b>$<%= product.price %>
 	</p>
 	<p>
 		<b>Category: </b><%= link_to product.category.name, controller: "category", action: "show", id: product.category %>

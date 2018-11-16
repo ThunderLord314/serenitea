@@ -1,5 +1,5 @@
 <div class="search">	
-	<%= form_tag("/search", method: "get") do %>
+	<%= form_tag(product_path, method: "get") do %>
 		<%= label_tag(:text, "Search") %>
 		<%= text_field_tag(:text) %>
 		<%= collection_select(:category, :category_id, Category.all, :id, :name) %>
