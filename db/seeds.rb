@@ -9,6 +9,22 @@ puts "Purging Database..."
 Product.delete_all
 Category.delete_all
 AdminUser.delete_all
+Province.delete_all
+
+puts "Creating Provinces..."
+Province.create(name: 'Alberta', abbreviation: "AB", combined_tax_rate: '5')
+Province.create(name: 'British Columbia', abbreviation: "BC", combined_tax_rate: '12')
+Province.create(name: 'Manitoba', abbreviation: "MB", combined_tax_rate: '13')
+Province.create(name: 'New-Brunswick', abbreviation: "NB", combined_tax_rate: '15')
+Province.create(name: 'Newfoundland and Labrador', abbreviation: "NL", combined_tax_rate: '15')
+Province.create(name: 'Northwest Territories', abbreviation: "NT", combined_tax_rate: '5')
+Province.create(name: 'Nova Scotia', abbreviation: "NS", combined_tax_rate: '15')
+Province.create(name: 'Nunavut', abbreviation: "NU", combined_tax_rate: '5')
+Province.create(name: 'Ontario', abbreviation: "ON", combined_tax_rate: '13')
+Province.create(name: 'Prince Edward Island', abbreviation: "PE", combined_tax_rate: '15')
+Province.create(name: 'Quebec', abbreviation: "QC", combined_tax_rate: '15')
+Province.create(name: 'Saskatchewan', abbreviation: "SK", combined_tax_rate: '11')
+Province.create(name: 'Yukon', abbreviation: "YT", combined_tax_rate: '5')
 
 puts "Creating Admins..."
 AdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password') if Rails.env.development?
