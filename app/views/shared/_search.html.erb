@@ -1,8 +1,11 @@
 <div class="search">	
-	<%= form_tag(product_path, method: "get") do %>
+	<%= form_tag(product_index_path, method: "get") do %>
 		<%= label_tag(:text, "Search") %>
-		<%= text_field_tag(:text) %>
+		<%= text_field_tag(:text, params[:text]) %>
 		<%= collection_select(:category, :category_id, Category.all, :id, :name) %>
-		<%= submit_tag("Search") %>
+		<%= submit_tag("Search", name: nil) %>
 	<% end %>
+</div>
+<div class="filters">
+
 </div>
