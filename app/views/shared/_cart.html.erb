@@ -16,8 +16,9 @@
 <% end %>
 
 <% if !checkout %>
+	<%= link_to "Clear Cart", clear_cart_product_index_path, method: :post %>
 	<h2>Total: $<%= total / 100 %></h2>
-	<%= link_to 'Checkout' %>
+	<%= link_to 'Checkout', checkout_index_path %>
 <% else %>
 	<h2>Subtotal: $<%= total / 100 %></h2>
 <% end %>

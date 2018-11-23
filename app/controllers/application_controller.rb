@@ -2,15 +2,6 @@ class ApplicationController < ActionController::Base
 	before_action :load_categories
 	before_action :initialize_session
 
-	private
-	def initialize_session
-		session[:cart] ||= Hash.new
-	end
-
-	def load_categories
-		@categories = Category.all
-	end
-
 	# Adds a product to the cart, or if it already exists, increment it by one
 	def add_to_cart
 		cart_hash = session[:cart]
@@ -45,6 +36,17 @@ class ApplicationController < ActionController::Base
 		session[:cart] = Hash.new
 
 		redirect_to root_url
+	end
+
+
+
+	private
+	def initialize_session
+		session[:cart] ||= Hash.new
+	end
+
+	def load_categories
+		@categories = Category.all
 	end
 
 	# Helper for add_to_cart to locate an id on the session[:cart] hash or create one if there isn't

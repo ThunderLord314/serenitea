@@ -1,7 +1,6 @@
 <%= render partial: 'shared/search', object: @categories %>
 <%= render partial: 'shared/cart', locals: {checkout: false} %>
 <%= link_to "Sign Up", new_customer_path %>
-<%= link_to "Clear Cart", clear_cart_product_index_path, method: :post %>
 <%= paginate @product_collection %>
 <%= render partial: 'product', collection: @product_collection %>
 <%= paginate @product_collection %>
