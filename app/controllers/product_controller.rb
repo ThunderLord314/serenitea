@@ -15,6 +15,11 @@ class ProductController < ApplicationController
 		@product = Product.find(params[:id])
 	end
 
+	# Brings you to a checkout screen
+	def checkout
+		
+	end
+
 	# Adds a product to the cart, or if it already exists, increment it by one
 	def add_to_cart
 		cart_hash = session[:cart]
