@@ -1,6 +1,6 @@
-<%= render partial: 'shared/search', object: @categories %>
 <%= render partial: 'shared/cart', locals: {checkout: false} %>
 <%= link_to "Sign Up", new_customer_path %>
+<%= render partial: 'shared/search', object: @categories %>
 <%= paginate @product_collection %>
 <%= render partial: 'product', collection: @product_collection %>
 <%= paginate @product_collection %>

@@ -1,9 +1,18 @@
 class ProductController < ApplicationController
+	require 'date'
 	# Shows a list of all of the products, or if a search is submitted, products that match the search
 	def index
 		@product_collection = Product.order('category_id').page(params[:page]).per(5)
 		if params[:category].present?
-			@product_collection = Product.where("category_id = :cat AND (description LIKE :text OR name LIKE :text)", 
+			current_date = Date.today().prev_day(14).strftime('%Y-%m-%d %H-%M-%S')
+			filter_sql = "category_id = :cat AND (description LIKE :text OR name LIKE :text)"
+			if params[:filter] == "2"
+				filter_sql << " AND sale_price != 0 AND price - sale_price > 0"
+			end
+			if params[:filter] == "3"
+				filter_sql << " AND created_at >= \'" << current_date << "\'"
+			end
+			@product_collection = Product.where(filter_sql, 
 												cat: params[:category][:category_id], 
 												text: "%" << params[:text] << "%"
 												).page(params[:page]).per(5)

@@ -3,6 +3,7 @@
 		<%= label_tag(:text, "Search") %>
 		<%= text_field_tag(:text, params[:text]) %>
 		<%= collection_select(:category, :category_id, Category.all, :id, :name) %>
+		<%= select_tag(:filter, options_for_select([['All', 1], ['Sales', 2], ['New', 3]], 1)) %>
 		<%= submit_tag("Search", name: nil) %>
 	<% end %>
 </div>
