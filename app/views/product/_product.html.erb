@@ -12,7 +12,8 @@
 	<p><b>Quantity in Stock: </b><%= product.quantity %></p>
 
 	<% if product.sale_price.present? %>
-		<p><b>Price: </b><s>$<%= product.price.to_f / 100 %></s><b>Sale Price: </b>$<%= product.sale_price.to_f / 100 %></p>
+		<p><b>Price: </b><s>$<%= product.price.to_f / 100 %></s></p>
+		<p><b>Sale Price: </b>$<%= product.sale_price.to_f / 100 %></p>
 	<% else %>
 		<p><b>Price: </b>$<%= product.price.to_f / 100 %></p>
 	<% end %>

@@ -15,6 +15,6 @@ Rails.application.routes.draw do
   end
   resources :category, only: [:show]
   resources :customer, only: [:new, :create]
-  resources :checkout, only: [:index]
+  resources :checkout, only: [:new]
   root to: 'product#index'
 end
