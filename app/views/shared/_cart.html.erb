@@ -1,1 +1,16 @@
-<%= debug session[:cart] %>
+<h2>Shopping Cart</h2>
+<% total = 0 %>
+<% session[:cart].keys.each do |key| %>
+	<% total += session[:cart][key]["quantity"].to_f * session[:cart][key]["price"].to_f %>
+	<div class="cart">
+		<h3><%= pluralize(session[:cart][key]["quantity"], Product.find(key).name) %>
+			($<%= session[:cart][key]["price"].to_f / 100 %>)</h3>
+		<p>
+			<%= link_to 'Add 1', add_to_cart_product_path(key), method: :post %>
+			<%= link_to 'Remove 1', remove_from_cart_product_path(key), method: :post %>
+			<%= link_to 'Remove from Cart', clear_item_from_cart_product_path(key), method: :post %>
+		</p>
+	</div>
+<% end %>
+<h2>Total: $<%= total / 100 %></h2>
+<br>

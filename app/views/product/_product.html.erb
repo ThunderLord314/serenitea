@@ -1,31 +1,17 @@
 <div class="product">
 	<% if product.image.present? %>
-		<p>
-			<%= image_tag product.image.resized.url %>
-		</p>
+		<p><%= image_tag product.image.resized.url %></p>
 	<% end %>
 
-	<h2>
-		<%= link_to product.name, product %>
-	</h2>
+	<h2><%= link_to product.name, product %></h2>
 
-	<p>
-		<%= link_to 'Add to Cart', add_to_cart_product_path(product), method: :post %>
-	</p>
+	<p><%= link_to 'Add to Cart', add_to_cart_product_path(product), method: :post %></p>
 
-	<p>
-		<b>Description: </b><%= product.description %>
-	</p>
+	<p><b>Description: </b><%= product.description %></p>
 
-	<p>
-		<b>Quantity in Stock: </b><%= product.quantity %>
-	</p>
+	<p><b>Quantity in Stock: </b><%= product.quantity %></p>
 
-	<p>
-		<b>Price: </b>$<%= product.price %>
-	</p>
+	<p><b>Price: </b>$<%= product.price.to_f / 100 %></p>
 
-	<p>
-		<b>Category: </b><%= link_to product.category.name, controller: "category", action: "show", id: product.category %>
-	</p>
+	<p><b>Category: </b><%= link_to product.category.name, controller: "category", action: "show", id: product.category %></p>
 </div>

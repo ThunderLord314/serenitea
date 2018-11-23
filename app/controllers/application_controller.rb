@@ -9,7 +9,7 @@ class ApplicationController < ActionController::Base
 
 	# Returns a collection based on the id's of the hash
 	def load_cart
-		@cart = Product.find(session[:cart])
+		@cart = Product.find(session[:cart].keys)
 	end
 
 	def load_categories

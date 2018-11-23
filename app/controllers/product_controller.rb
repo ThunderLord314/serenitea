@@ -30,12 +30,33 @@ class ProductController < ApplicationController
 		product[:quantity] += 1
 		# save the updated hash
 		cart_hash[params[:id]] = product
+
+		redirect_to root_url
+	end
+
+	# Decrements the quantity on an item in the cart, and removes it when it's 0
+	def remove_from_cart
+		cart_hash = session[:cart]
+
+		cart_hash[params[:id]]["quantity"] -= 1
+		if cart_hash[params[:id]]["quantity"] === 0
+			cart_hash.delete(params[:id])
+		end
+
+		redirect_to root_url
+	end
+
+	# Removes an item from the shopping cart
+	def clear_item_from_cart
+		cart_hash = session[:cart]
+
 		redirect_to root_url
 	end
 
 	# Empties the cart
 	def clear_cart
 		session[:cart] = Hash.new
+
 		redirect_to root_url
 	end
 end
