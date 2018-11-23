@@ -1,5 +1,5 @@
 class CheckoutController < ApplicationController
-	def new
+	def index
 
 	end
 
