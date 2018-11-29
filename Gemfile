@@ -35,6 +35,9 @@ gem 'jbuilder', '~> 2.5'
 
 gem 'rb-readline'
 
+# Active storage through google cloud services
+gem "google-cloud-storage", "~> 1.11", require: false
+
 # Adds pagination
 gem 'kaminari'
 
