@@ -38,6 +38,9 @@ gem 'rb-readline'
 # Active storage through google cloud services
 gem "google-cloud-storage", "~> 1.11", require: false
 
+# Adds rubocop community styles manager
+gem 'rubocop'
+
 # Adds pagination
 gem 'kaminari'
 
