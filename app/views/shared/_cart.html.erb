@@ -1,5 +1,6 @@
 <h2><%= checkout ? "Checkout" : "Shopping Cart" %></h2>
 <% total = 0 %>
+<% tax = 0.13 %>
 <% session[:cart].keys.each do |key| %>
 	<% total += session[:cart][key]["quantity"].to_f * session[:cart][key]["price"].to_f %>
 	<div class="cart">
@@ -18,8 +19,12 @@
 <% if !checkout %>
 	<%= link_to "Clear Cart", clear_cart_product_index_path, method: :post %>
 	<h2>Total: $<%= total / 100 %></h2>
+	<% session[:cart]["total_price"] = total %>
 	<%= link_to 'Checkout', checkout_index_path %>
 <% else %>
 	<h2>Subtotal: $<%= total / 100 %></h2>
+	<h2>Tax: $<%= tax_amount = total / 100 * tax %></h2>
+	<h2>Grand Total: $<%= total / 100 + tax_amount %></h2>
+	<%= link_to 'Purchase', new_checkout_path %>
 <% end %>
 <br>

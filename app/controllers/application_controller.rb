@@ -57,7 +57,11 @@ class ApplicationController < ActionController::Base
 			product[:price] = hash[key]["price"]
 		else
 			product[:quantity] ||= 0
-			product[:price] = Product.find(key).price
+			if Product.find(key).sale_price.exists?
+				product[:price] = Product.find(key).sale_price
+			else
+				product[:price] = Product.find(key).price
+			end
 		end
 		return product
 	end
