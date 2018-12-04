@@ -12,4 +12,7 @@ class CheckoutController < ApplicationController
 		end
 		redirect_to checkout_index_path
 	end
+
+	def create
+	end
 end

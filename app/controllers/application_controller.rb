@@ -7,7 +7,7 @@ class ApplicationController < ActionController::Base
 		cart_hash = session[:cart]
 		product = find_key(cart_hash, params[:id])
 		product[:quantity] += 1
-		session[:cart][params[:id]] = product
+		cart_hash[params[:id]] = product
 
 		redirect_to root_url
 	end
@@ -42,7 +42,7 @@ class ApplicationController < ActionController::Base
 
 	private
 	def initialize_session
-		session[:cart] ||= Hash.new
+		session[:cart] ||= Hash.news
 	end
 
 	def load_categories
@@ -57,11 +57,7 @@ class ApplicationController < ActionController::Base
 			product[:price] = hash[key]["price"]
 		else
 			product[:quantity] ||= 0
-			if Product.find(key).sale_price.exists?
-				product[:price] = Product.find(key).sale_price
-			else
-				product[:price] = Product.find(key).price
-			end
+			product[:price] = Product.find(key).sale_price.present? ? Product.find(key).sale_price : Product.find(key).price
 		end
 		return product
 	end
