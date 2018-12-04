@@ -4,5 +4,5 @@ class Order < ApplicationRecord
 	belongs_to :customer
 
 	validates :customer, presence: true
-	validates :order_placed, presence: true
+	validates :date_ordered, presence: true
 end

@@ -1,22 +1,5 @@
 <h2>Sign Up with Serenitea</h2>
 <%= form_tag(controller: "customer", action: "create", method: "post") do %>
-	<%= label_tag(:first_name, "First Name") %>
-	<%= text_field(:customer, :first_name) %><br>
-
-	<%= label_tag(:last_name, "Last Name") %>
-	<%= text_field(:customer, :last_name) %><br>
-
-	<%= label_tag(:address, "Address") %>
-	<%= text_field(:customer, :address) %><br>
-
-	<%= label_tag(:phone_number, "Phone Number") %>
-	<%= text_field(:customer, :phone_number) %><br>
-
-	<%= label_tag(:email, "Email") %>
-	<%= text_field(:customer, :email) %><br>
-
-	<%= label_tag(:province, "Province") %>
-	<%= collection_select(:customer, :province_id, Province.all, :id, :name) %><br>
-
-	<%= submit_tag("Sign Up") %>
+	<%= render partial: 'shared/user' %>
 <% end %>
+<%= submit_tag("Sign Up") %>

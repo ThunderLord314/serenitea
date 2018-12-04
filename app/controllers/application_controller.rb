@@ -42,7 +42,7 @@ class ApplicationController < ActionController::Base
 
 	private
 	def initialize_session
-		session[:cart] ||= Hash.news
+		session[:cart] ||= Hash.new
 	end
 
 	def load_categories

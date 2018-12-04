@@ -1,1 +1,7 @@
 <%= render partial: 'shared/cart', locals: {checkout: true} %>
+<h3>Billing Info</h3>
+<%= form_tag(controller: "checkout", action: "create", method: "post") do %>
+	<%= render partial: 'shared/user' %>
+<%= submit_tag("Purchase") %>
+<% end %>
+<%= debug session[:total] %>

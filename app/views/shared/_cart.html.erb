@@ -23,7 +23,7 @@
 <% else %>
 	<h3>Subtotal: <%= number_to_currency(total / 100) %></h3>
 	<h3>Tax: <%= number_to_currency(tax_amount = total / 100 * tax) %></h3>
-	<h2>Grand Total: <%= number_to_currency(total / 100 + tax_amount) %></h2>
-	<%= link_to 'Purchase', new_checkout_path %>
+	<h2>Grand Total: <%= final_total = number_to_currency(total / 100 + tax_amount) %></h2>
+	<% session[:total] = (total * (tax + 1)).round(0) %>
 <% end %>
 <br>

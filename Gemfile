@@ -41,6 +41,9 @@ gem "google-cloud-storage", "~> 1.11", require: false
 # Adds rubocop community styles manager
 gem 'rubocop'
 
+# add stripe payment processing
+gem 'stripe'
+
 # Adds pagination
 gem 'kaminari'
 
