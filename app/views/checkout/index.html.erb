@@ -1,6 +1,15 @@
 <%= render partial: 'shared/cart', locals: {checkout: true} %>
 <h3>Billing Info</h3>
 <%= form_tag(controller: "checkout", action: "create", method: "post") do %>
-	<%= render partial: 'shared/user' %>
-<%= submit_tag("Purchase") %>
+	<% if flash[:error].present? %>
+		<div id="error">
+			<p><%= flash[:error] %> </p>
+		</div>
+	<% end %>
+
+	<%= render partial: 'shared/user' %>	
+
+	<script src="https://checkout.stripe.com/checkout.js" class="stripe-button" data-key="<% Rails.configuration.stripe[:publishable_key] %>" data-description="<%= @description %>" data-amount="<%= @amount %>" data-locale="auto"></script>
+
+	<%= submit_tag("Purchase") %>
 <% end %>

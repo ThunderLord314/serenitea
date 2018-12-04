@@ -10,3 +10,9 @@
 <% end %>
 <p>Tax: <%= number_to_currency(tax_amount = total / 100 * tax) %></p>
 <h3>Grand Total: <%= final_total = number_to_currency(total / 100 + tax_amount) %></h3>
+
+<h3>Stripe Customer</h3>
+<%= debug @stripe_cust %>
+
+<h3>Stripe Charge</h3>
+<%= debug @stripe_charge %>
