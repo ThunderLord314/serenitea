@@ -26,7 +26,7 @@ class CheckoutController < ApplicationController
 							  total_price: session[:total],
 							  date_ordered: Date.today().strftime('%Y-%m-%d %H-%M-%S'))
 
-		session[:cart].each do |id|
+		session[:cart].keys.each do |id|
 			OrderProduct.create(order_id: @order.id,
 								product_id: id,
 								quantity: session[:cart][id]['quantity'])
