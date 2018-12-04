@@ -3,10 +3,11 @@
 <h3>Order Details</h3>
 <% total = 0 %>
 <% tax = 0.13 %>
-<% session[:cart].keys.each do |key| %>
-	<% total += session[:cart][key]["quantity"].to_f * session[:cart][key]["price"].to_f %>
-	<p><%= pluralize(session[:cart][key]["quantity"], Product.find(key).name) %>
-		(<%= number_to_currency(session[:cart][key]["price"].to_f / 100) %>)</p>
+<% @cart.keys.each do |key| %>
+	<% total += @cart[key]["quantity"].to_f * @cart[key]["price"].to_f %>
+	<p><%= pluralize(@cart[key]["quantity"], Product.find(key).name) %>
+		(<%= number_to_currency(@cart[key]["price"].to_f / 100) %>)</p>
 <% end %>
 <p>Tax: <%= number_to_currency(tax_amount = total / 100 * tax) %></p>
 <h3>Grand Total: <%= final_total = number_to_currency(total / 100 + tax_amount) %></h3>
+<%= link_to 'Homepage', product_index_path %>
